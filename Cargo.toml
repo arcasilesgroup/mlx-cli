@@ -1,0 +1,28 @@
+[package]
+name = "mlx-cli"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Manage local MLX model servers on Apple Silicon"
+repository = "https://github.com/arcasilesgroup/mlx-cli"
+keywords = ["mlx", "apple-silicon", "llm", "cli", "machine-learning"]
+categories = ["command-line-utilities"]
+
+[[bin]]
+name = "mlx"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+dialoguer = "0.11"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.9"
+anyhow = "1"
+dirs = "6"
+sysinfo = "0.37"
+libc = "0.2"
+sha2 = "0.10"
+[profile.release]
+lto = true
+strip = true
